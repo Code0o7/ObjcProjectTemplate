@@ -47,5 +47,22 @@
 #define HYSCREEN_Bottom_Safe_Height (HYDEVICE_Has_Bang ? 34.f : 0.f)
 #define HYSCREEN_Tabbar_Height (HYDEVICE_Has_Bang ? (49.f + 34.f) : (49.f))
 
+#pragma mark - 颜色相关
+#define HYColorRGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define HYColorRGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+#define HYColorHex(string) [UIColor colorWithHexString:string]
+
+#define HYColorMain KClassColor(@"#F76049") // 主题色
+#define HYColorWhite [UIColor whiteColor] // 白色
+#define HYColorBlack [UIColor blackColor] // 黑色
+#define HYColorRed MJColor(241, 75, 95) // 红色
+#define HYColorLightGray [UIColor lightGrayColor] // 高亮灰
+#define HYColorClear [UIColor clearColor] // clear色
+#define HYColorBlue MJColor(76,98,247) // 蓝色
+#define HYColorGreen MJColor(23,175,24) // 绿色
+#define HYColorTextNormal MJColor(51,51,51) // 文字颜色
+
+// 浅灰背景颜色
+#define HYColorCommonBg HYColorRGB(245.0, 245.0, 250.0)
 
 #endif /* HYConstMacro_h */
