@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2E92583725B2B0750025370D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E92583625B2B0750025370D /* AppDelegate.m */; };
-		2E92583A25B2B0750025370D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E92583925B2B0750025370D /* SceneDelegate.m */; };
 		2E92583D25B2B0750025370D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E92583C25B2B0750025370D /* ViewController.m */; };
 		2E92584025B2B0750025370D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E92583E25B2B0750025370D /* Main.storyboard */; };
 		2E92584225B2B0780025370D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E92584125B2B0780025370D /* Assets.xcassets */; };
@@ -16,6 +15,7 @@
 		2E92584825B2B0780025370D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E92584725B2B0780025370D /* main.m */; };
 		2E92585225B2B0780025370D /* ObjcProjectTemplateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E92585125B2B0780025370D /* ObjcProjectTemplateTests.m */; };
 		2E92585D25B2B0790025370D /* ObjcProjectTemplateUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E92585C25B2B0790025370D /* ObjcProjectTemplateUITests.m */; };
+		2E92587E25B2B4970025370D /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E92587D25B2B4970025370D /* TestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,6 @@
 		2E92583225B2B0750025370D /* ObjcProjectTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjcProjectTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E92583525B2B0750025370D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2E92583625B2B0750025370D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2E92583825B2B0750025370D /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		2E92583925B2B0750025370D /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		2E92583B25B2B0750025370D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2E92583C25B2B0750025370D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2E92583F25B2B0750025370D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +52,13 @@
 		2E92585825B2B0790025370D /* ObjcProjectTemplateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjcProjectTemplateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E92585C25B2B0790025370D /* ObjcProjectTemplateUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjcProjectTemplateUITests.m; sourceTree = "<group>"; };
 		2E92585E25B2B0790025370D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E92587C25B2B4970025370D /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		2E92587D25B2B4970025370D /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		2E92588325B2BAE80025370D /* VendorMarco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorMarco.h; sourceTree = "<group>"; };
+		2E92588525B2BAE90025370D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		2E92588625B2BC440025370D /* HYAPIConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYAPIConfig.h; sourceTree = "<group>"; };
+		2E92588725B2BDBF0025370D /* HYConstMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYConstMacro.h; sourceTree = "<group>"; };
+		2E92588925B2C6930025370D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,12 +109,14 @@
 		2E92583425B2B0750025370D /* ObjcProjectTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				2E92588825B2C6100025370D /* AppConfig */,
+				2E92588225B2BAC70025370D /* Macro */,
 				2E92583525B2B0750025370D /* AppDelegate.h */,
 				2E92583625B2B0750025370D /* AppDelegate.m */,
-				2E92583825B2B0750025370D /* SceneDelegate.h */,
-				2E92583925B2B0750025370D /* SceneDelegate.m */,
 				2E92583B25B2B0750025370D /* ViewController.h */,
 				2E92583C25B2B0750025370D /* ViewController.m */,
+				2E92587C25B2B4970025370D /* TestViewController.h */,
+				2E92587D25B2B4970025370D /* TestViewController.m */,
 				2E92583E25B2B0750025370D /* Main.storyboard */,
 				2E92584125B2B0780025370D /* Assets.xcassets */,
 				2E92584325B2B0780025370D /* LaunchScreen.storyboard */,
@@ -135,6 +142,25 @@
 				2E92585E25B2B0790025370D /* Info.plist */,
 			);
 			path = ObjcProjectTemplateUITests;
+			sourceTree = "<group>";
+		};
+		2E92588225B2BAC70025370D /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				2E92588525B2BAE90025370D /* Constants.h */,
+				2E92588325B2BAE80025370D /* VendorMarco.h */,
+				2E92588625B2BC440025370D /* HYAPIConfig.h */,
+				2E92588725B2BDBF0025370D /* HYConstMacro.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		2E92588825B2C6100025370D /* AppConfig */ = {
+			isa = PBXGroup;
+			children = (
+				2E92588925B2C6930025370D /* PrefixHeader.pch */,
+			);
+			path = AppConfig;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +225,7 @@
 		2E92582A25B2B0750025370D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = HY;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
 					2E92583125B2B0750025370D = {
@@ -268,8 +295,8 @@
 			files = (
 				2E92583D25B2B0750025370D /* ViewController.m in Sources */,
 				2E92583725B2B0750025370D /* AppDelegate.m in Sources */,
+				2E92587E25B2B4970025370D /* TestViewController.m in Sources */,
 				2E92584825B2B0780025370D /* main.m in Sources */,
-				2E92583A25B2B0750025370D /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,14 +469,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ObjcProjectTemplate/AppConfig/PrefixHeader.pch";
 				INFOPLIST_FILE = ObjcProjectTemplate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.findme.FindmeEducation.ObjcProjectTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oc.ObjcProjectTemplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -459,14 +488,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ObjcProjectTemplate/AppConfig/PrefixHeader.pch";
 				INFOPLIST_FILE = ObjcProjectTemplate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.findme.FindmeEducation.ObjcProjectTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oc.ObjcProjectTemplate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

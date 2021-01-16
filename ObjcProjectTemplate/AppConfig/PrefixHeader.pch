@@ -1,0 +1,15 @@
+//
+//  PrefixHeader.pch
+//  ObjcProjectTemplate
+//
+//  Created by 臻尚 on 2021/1/16.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// 宏定义
+#import "HYAPIConfig.h"
+#import "HYConstMacro.h"
+
+#endif /* PrefixHeader_pch */
