@@ -1,0 +1,20 @@
+//
+//  HYPrefixHeader.pch
+//  ObjcProjectTemplate
+//
+//  Created by 臻尚 on 2021/3/22.
+//
+
+#ifndef HYPrefixHeader_pch
+#define HYPrefixHeader_pch
+
+// pods
+#import <Masonry.h>
+#import "MBProgressHUD.h"
+#import <AFNetworking.h>
+
+
+// 自定义框架
+#import "HYFramework.h"
+
+#endif /* HYPrefixHeader_pch */

@@ -1,0 +1,6 @@
+framework module Pods_ObjcProjectTemplate {
+  umbrella header "Pods-ObjcProjectTemplate-umbrella.h"
+
+  export *
+  module * { export * }
+}
