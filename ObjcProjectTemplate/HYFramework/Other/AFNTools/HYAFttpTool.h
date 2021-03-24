@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, RequestType) {
     RequestType_GET         // get
 };
 
-@interface AFHttpClient : AFHTTPSessionManager
+@interface HYAFHttpClient : AFHTTPSessionManager
 
 // 单利
 + (instancetype)sharedClient;
@@ -44,8 +44,8 @@ typedef NS_ENUM(NSInteger, RequestType) {
 + (void)requestWithType:(RequestType)requestType
             networkPath:(NSString *)path
                  params:(NSDictionary *)params
-                success:(HttpSuccessBlock)success
-                failure:(HttpFailureBlock)failure
+                success:(HYHttpSuccessBlock)success
+                failure:(HYHttpFailureBlock)failure
                dataType:(ReturnDataType )type
                 showHUD:(BOOL)isShow;
 
@@ -59,8 +59,8 @@ typedef NS_ENUM(NSInteger, RequestType) {
  */
 + (void)POSTWithPath:(NSString *)path
               params:(NSDictionary *)params
-             success:(HttpSuccessBlock)success
-             failure:(HttpFailureBlock)failure
+             success:(HYHttpSuccessBlock)success
+             failure:(HYHttpFailureBlock)failure
             dataType:(ReturnDataType )type
              showHUD:(BOOL)isShow;
 
@@ -74,8 +74,8 @@ typedef NS_ENUM(NSInteger, RequestType) {
  */
 + (void)GETWithPath:(NSString *)path
                     params:(NSDictionary *)params
-                   success:(HttpSuccessBlock)success
-                   failure:(HttpFailureBlock)failure
+                   success:(HYHttpSuccessBlock)success
+                   failure:(HYHttpFailureBlock)failure
                   dataType:(ReturnDataType)type
                    showHUD:(BOOL)isShow;
 /**
@@ -90,8 +90,8 @@ typedef NS_ENUM(NSInteger, RequestType) {
 + (void)runDispatchTestWithType:(RequestType)type
                           Paths:(NSArray *)urls
                            paras:(NSArray *)paras
-                         success:(HttpSuccessBlock)success
-                         failure:(HttpFaultBlock)failure;
+                         success:(HYHttpSuccessBlock)success
+                         failure:(HYHttpFaultBlock)failure;
 
 /**
  图片上传 -- GCD队列请求
@@ -103,8 +103,8 @@ typedef NS_ENUM(NSInteger, RequestType) {
  */
 + (void)upLoadWithPaths:(NSArray *)urls
                   paras:(NSArray *)paras
-                success:(HttpSuccessBlock)success
-                failure:(HttpFaultBlock)failure;
+                success:(HYHttpSuccessBlock)success
+                failure:(HYHttpFaultBlock)failure;
 /**
  图片上传
  
@@ -117,9 +117,9 @@ typedef NS_ENUM(NSInteger, RequestType) {
 + (void)uploadImage:(UIImage *)image
           imageName:(NSString *)imageName
                 url:(NSString *)url
-           progress:(HttpProgressBlock)progress
-            success:(HttpSuccessBlock)success
-            failure:(HttpFaultBlock)failure;
+           progress:(HYHttpProgressBlock)progress
+            success:(HYHttpSuccessBlock)success
+            failure:(HYHttpFaultBlock)failure;
 
 /**
  图片、视频上传 -- GCD队列请求
@@ -131,8 +131,8 @@ typedef NS_ENUM(NSInteger, RequestType) {
  */
 + (void)upLoadMoviePhotoWithPaths:(NSArray *)urls
                             paras:(NSArray *)paras
-                          success:(HttpSuccessBlock)success
-                          failure:(HttpFaultBlock)failure;
+                          success:(HYHttpSuccessBlock)success
+                          failure:(HYHttpFaultBlock)failure;
 /**
  视频上传
  
@@ -145,13 +145,13 @@ typedef NS_ENUM(NSInteger, RequestType) {
 + (void)uploadMovieWithParam:(NSString *)videoPath
                      movieName:(NSString *)videoName
                            url:(NSString *)url
-                       success:(HttpSuccessBlock)success
-                       failure:(HttpFaultBlock)failure;
+                       success:(HYHttpSuccessBlock)success
+                       failure:(HYHttpFaultBlock)failure;
 
 /**
  上传图片
  */
-+ (void)uploadWithParameters:(id)parameters UrlString:(NSString *)urlString header:(NSDictionary *)header upImg:(NSData *)upImg imgNamge:(NSString *)imgName successBlock:(HttpSuccessBlock)successBlock failureBlock:(HttpFaultBlock)failure;
++ (void)uploadWithParameters:(id)parameters UrlString:(NSString *)urlString header:(NSDictionary *)header upImg:(NSData *)upImg imgNamge:(NSString *)imgName successBlock:(HYHttpSuccessBlock)successBlock failureBlock:(HYHttpFaultBlock)failure;
 
 /**
  上传视频等文件
@@ -162,8 +162,8 @@ typedef NS_ENUM(NSInteger, RequestType) {
                       upData:(NSData *)upData
                         name:(NSString *)name
                     fileType:(NSString *)fileType
-                successBlock:(HttpSuccessBlock)successBlock
-                failureBlock:(HttpFaultBlock)failure;
+                successBlock:(HYHttpSuccessBlock)successBlock
+                failureBlock:(HYHttpFaultBlock)failure;
 
 /**
  取消网络请求
@@ -175,7 +175,7 @@ typedef NS_ENUM(NSInteger, RequestType) {
 
  @param state 状态
  */
-+ (void)NetworkMonitoringStatus:(TheNetworkStatusBlock)state;
++ (void)NetworkMonitoringStatus:(HYTheNetworkStatusBlock)state;
 
 @end
 

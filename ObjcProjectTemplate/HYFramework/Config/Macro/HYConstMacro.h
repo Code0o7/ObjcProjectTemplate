@@ -53,6 +53,9 @@
 // tabbar高度
 #define HYSCREEN_Tabbar_Height (HYDEVICE_Has_Bang ? (49.f + 34.f) : (49.f))
 
+#pragma mark - 系统相关
+// 系统版本
+
 
 #pragma mark - 颜色相关
 // RGB表示颜色
@@ -107,6 +110,18 @@
 #define HYStringToFloat(str) [str floatValue]
 // 字符串转double
 #define HYStringToDouble(str) [str doubleValue]
+// 后台返回特殊字符串处理,null、<null>、(null)等转换成@""
+#define HYStringHandle(str) ([str isNULL] ? @"" : str)
+
+// 判断对象是不是指定的类类型
+#define HYObjIsKindOfClass(obj,clas) [obj isKindOfClass:[clas class]]
+
+
+
+#pragma mark - 强、弱引用宏
+/*! 弱引用宏 */
+#define WeakObj(o)       try{}@finally{} __weak typeof(o) Weak##o = o;
+#define WeakSelf         @WeakObj(self)
 
 #pragma mark - MBProgressHUD
 #define WAITING         [MBProgressHUD showMessage:@"加载中"];
@@ -122,10 +137,10 @@ typedef void (^HYBlockNoneArgument) (void);
 typedef void (^HYBlockWithArgument) (id value);
 
 // 网络请求block
-typedef void (^HttpSuccessBlock)        (id responseObject);
-typedef void (^HttpFailureBlock)        (NSError *error);
-typedef void (^HttpFaultBlock)          (id error);
-typedef void (^HttpProgressBlock)       (NSProgress *progress);
-typedef void (^TheNetworkStatusBlock)   (NSUInteger status);
+typedef void (^HYHttpSuccessBlock)        (id responseObject);
+typedef void (^HYHttpFailureBlock)        (NSError *error);
+typedef void (^HYHttpFaultBlock)          (id error);
+typedef void (^HYHttpProgressBlock)       (NSProgress *progress);
+typedef void (^HYTheNetworkStatusBlock)   (NSUInteger status);
 
 #endif /* HYConstMacro_h */

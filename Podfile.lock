@@ -16,23 +16,27 @@ PODS:
     - AFNetworking/NSURLSession
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
+  - MJRefresh (3.5.0)
 
 DEPENDENCIES:
   - AFNetworking
   - Masonry
   - MBProgressHUD
+  - MJRefresh
 
 SPEC REPOS:
   trunk:
     - AFNetworking
     - Masonry
     - MBProgressHUD
+    - MJRefresh
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
 
-PODFILE CHECKSUM: 1325eaa549b7c0fa9d64768746944b78786a0147
+PODFILE CHECKSUM: 5695d6e20c433599ac3b019c3cafaa06d687cb7c
 
 COCOAPODS: 1.10.0

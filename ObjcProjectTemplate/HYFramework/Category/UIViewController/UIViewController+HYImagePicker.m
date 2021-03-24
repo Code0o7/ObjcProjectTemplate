@@ -30,12 +30,15 @@ static char photoBlock;
  打开相机/相册
  @param pickerType 打开pickerView类型(参考 PickerType 枚举各个类型注释)
  @param pickerFileType 文件类型(参考 PickerFileType 枚举各个类型注释)
+ @param complete 完成回调
  */
 - (void)openPickerView:(PickerType)pickerType
         pickerFileType:(PickerFileType)pickerFileType
+              complete:(ImageCompleteBlock)complete
 {
     UIImagePickerController *pc = [[UIImagePickerController alloc]init];
     pc.delegate = self;
+    self.imagePickCompleteBlock = complete;
     
     // 设置可选照片和视频
     NSArray *mediaTypes = nil;

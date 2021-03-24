@@ -7,15 +7,15 @@
 
 #import "HYAFttpTool.h"
 
-@implementation AFHttpClient
+@implementation HYAFHttpClient
 
 // 单例
 + (instancetype)sharedClient
 {
-    static AFHttpClient *_sharedClient = nil;
+    static HYAFHttpClient *_sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedClient = [[AFHttpClient alloc] initWithBaseURL:[NSURL URLWithString:HYAPI_BASE_URL]];
+        _sharedClient = [[HYAFHttpClient alloc] initWithBaseURL:[NSURL URLWithString:HYAPI_BASE_URL]];
         _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
         _sharedClient.responseSerializer.acceptableContentTypes =  [NSSet setWithObjects: @"text/plain",@"application/json", @"text/html", @"text/json", @"text/javascript", nil];
 //        _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
@@ -31,8 +31,8 @@
 + (void)requestWithType:(RequestType)requestType
             networkPath:(NSString *)path
                  params:(NSDictionary *)params
-                success:(HttpSuccessBlock)success
-                failure:(HttpFailureBlock)failure
+                success:(HYHttpSuccessBlock)success
+                failure:(HYHttpFailureBlock)failure
                dataType:(ReturnDataType)type showHUD:(BOOL)isShow{
     if (requestType == RequestType_GET) {
         [self GETWithPath:path params:params success:^(id responseObject) {
@@ -53,11 +53,11 @@
 #pragma mark POST请求
 + (void)POSTWithPath:(NSString *)path
               params:(NSDictionary *)params
-             success:(HttpSuccessBlock)success
-             failure:(HttpFailureBlock)failure
+             success:(HYHttpSuccessBlock)success
+             failure:(HYHttpFailureBlock)failure
             dataType:(ReturnDataType )type
              showHUD:(BOOL)isShow{
-    AFHttpClient * manager = [AFHttpClient sharedClient];
+    HYAFHttpClient * manager = [HYAFHttpClient sharedClient];
     manager.requestSerializer.timeoutInterval = 30;
     if (type == ReturnDataType_XML || type == ReturnDataType_HTML) {
         manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -110,7 +110,7 @@
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         DISMISS
-        if (![NSString stringIsNULL:[self returnErrorWithError:error].localizedDescription]) {
+        if (![[self returnErrorWithError:error].localizedDescription isNULL]) {
             ERRORWith([self returnErrorWithError:error].localizedDescription)
         }
         if (failure && error) {
@@ -121,11 +121,11 @@
 #pragma mark GET请求
 + (void)GETWithPath:(NSString *)path
              params:(NSDictionary *)params
-            success:(HttpSuccessBlock)success
-            failure:(HttpFailureBlock)failure
+            success:(HYHttpSuccessBlock)success
+            failure:(HYHttpFailureBlock)failure
            dataType:(ReturnDataType)type
             showHUD:(BOOL)isShow{
-    AFHttpClient *manager = [AFHttpClient sharedClient];
+    HYAFHttpClient *manager = [HYAFHttpClient sharedClient];
     manager.requestSerializer.timeoutInterval = 30;
     if (type == ReturnDataType_XML || type == ReturnDataType_HTML) {
         manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -179,7 +179,7 @@
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         DISMISS
-        if (![NSString stringIsNULL:[self returnErrorWithError:error].localizedDescription]) {
+        if (![[self returnErrorWithError:error].localizedDescription isNULL]) {
             ERRORWith([self returnErrorWithError:error].localizedDescription)
         }
         if (failure) {
@@ -193,7 +193,7 @@
 #pragma mark -
 #pragma mark - 取消网络请求
 + (void)cancelAllRequest {
-    [[AFHttpClient sharedClient].operationQueue cancelAllOperations];
+    [[HYAFHttpClient sharedClient].operationQueue cancelAllOperations];
 }
 
 #pragma mark -
@@ -202,7 +202,7 @@
 + (NSURLSessionTask *)postTaskWithUrl:(NSString *)url  parameters:(NSDictionary *)parameters completion:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionBlock {
     NSError* error = NULL;
     NSMutableURLRequest * request  = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:parameters error:&error];
-    AFHttpClient * manager = [[AFHttpClient alloc] init];
+    HYAFHttpClient * manager = [[HYAFHttpClient alloc] init];
     NSSet *set = [NSSet setWithObject:@"text/json"];
     [manager.responseSerializer setAcceptableContentTypes:set];
     NSURLSessionTask * postTask = [manager dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:completionBlock];
@@ -212,7 +212,7 @@
 + (NSURLSessionTask *)getTaskWithUrl:(NSString *)url completion:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionBlock {
     NSError* error = NULL;
     NSMutableURLRequest * request  = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:url parameters:nil error:&error];
-    AFHttpClient * manager = [[AFHttpClient alloc] init];
+    HYAFHttpClient * manager = [[HYAFHttpClient alloc] init];
     NSSet *set = [NSSet setWithObject:@"text/json"];
     [manager.responseSerializer setAcceptableContentTypes:set];
     NSURLSessionTask * getTask = [manager dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:completionBlock];
@@ -222,8 +222,8 @@
 + (void)runDispatchTestWithType:(RequestType)type
                           Paths:(NSArray *)urls
                           paras:(NSArray *)paras
-                        success:(HttpSuccessBlock)success
-                        failure:(HttpFaultBlock)failure{
+                        success:(HYHttpSuccessBlock)success
+                        failure:(HYHttpFaultBlock)failure{
     // 准备保存结果的数组
     NSMutableArray * result = [NSMutableArray array];
     NSMutableArray * errors = [NSMutableArray array];
@@ -284,7 +284,10 @@
 
 #pragma mark ---
 #pragma mark --- 图片/视频
-+ (void)upLoadWithPaths:(NSArray *)urls paras:(NSArray *)paras success:(HttpSuccessBlock)success failure:(HttpFaultBlock)failure{
++ (void)upLoadWithPaths:(NSArray *)urls
+                  paras:(NSArray *)paras
+                success:(HYHttpSuccessBlock)success
+                failure:(HYHttpFaultBlock)failure{
     // 准备保存结果的数组
     NSMutableArray * result = [NSMutableArray array];
     NSMutableArray * errors = [NSMutableArray array];
@@ -296,7 +299,7 @@
     for (NSInteger i = 0; i < urls.count; i++) {
         dispatch_group_enter(group);
         UIImage * image = paras[i];
-        [self uploadImage:image imageName:String(@(i)) url:urls[i] progress:nil success:^(id responseObject) {
+        [self uploadImage:image imageName:[NSString stringWithFormat:@"%@",@(i)] url:urls[i] progress:nil success:^(id responseObject) {
             @synchronized (result) {
                 result[i] = responseObject;
             }
@@ -322,9 +325,9 @@
 + (void)uploadImage:(UIImage *)image
           imageName:(NSString *)imageName
                 url:(NSString *)url
-           progress:(HttpProgressBlock)progress
-            success:(HttpSuccessBlock)success
-            failure:(HttpFaultBlock)failure{
+           progress:(HYHttpProgressBlock)progress
+            success:(HYHttpSuccessBlock)success
+            failure:(HYHttpFaultBlock)failure{
     NSMutableDictionary *parmeter = [NSMutableDictionary dictionary];
     [parmeter setValue:@"1" forKey:imageName];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -364,7 +367,7 @@
       }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
       DISMISS
-      if (![NSString stringIsNULL:[self returnErrorWithError:error].localizedDescription]) {
+      if (![[self returnErrorWithError:error].localizedDescription isNULL]) {
           ERRORWith([self returnErrorWithError:error].localizedDescription)
       }
       if (failure) {
@@ -375,8 +378,8 @@
                   
 + (void)upLoadMoviePhotoWithPaths:(NSArray *)urls
                             paras:(NSArray *)paras
-                          success:(HttpSuccessBlock)success
-                          failure:(HttpFaultBlock)failure{
+                          success:(HYHttpSuccessBlock)success
+                          failure:(HYHttpFaultBlock)failure{
     // 准备保存结果的数组
     NSMutableArray * result = [NSMutableArray array];
     NSMutableArray * errors = [NSMutableArray array];
@@ -390,7 +393,7 @@
         NSDictionary * dict = paras[i];
         if ([dict[@"type"] isEqualToString:@"1"]) {
             UIImage * image = dict[@"image"];
-            [self uploadImage:image imageName:String(@(i)) url:urls[i] progress:nil success:^(id responseObject) {
+            [self uploadImage:image imageName:[NSString stringWithFormat:@"%@",@(i)] url:urls[i] progress:nil success:^(id responseObject) {
                 NSMutableDictionary * dictionary = [NSMutableDictionary dictionaryWithCapacity:3];
                 NSDictionary * dict1 = (NSDictionary *)responseObject;
                 [dictionary setObject:dict1[@"data"] forKey:@"url"];
@@ -408,10 +411,10 @@
             }];
         }else{
             NSString * path = dict[@"path"];
-            [self uploadMovieWithParam:path movieName:String(@(i)) url:urls[i] success:^(id responseObject) {
+            [self uploadMovieWithParam:path movieName:[NSString stringWithFormat:@"%@",@(i)] url:urls[i] success:^(id responseObject) {
                 NSMutableDictionary * dictionary = [NSMutableDictionary dictionaryWithCapacity:3];
                 NSDictionary * dict1 = (NSDictionary *)responseObject;
-                if (![NSString objIsNULL:dict1]) {
+                if (![dict1 isNULL]) {
                     [dictionary setObject:dict1[@"data"] forKey:@"url"];
                     [dictionary setObject:@"2" forKey:@"type"];
                 }
@@ -443,10 +446,10 @@
 + (void)uploadMovieWithParam:(NSString *)videoPath
                      movieName:(NSString *)videoName
                            url:(NSString *)url
-                       success:(HttpSuccessBlock)success
-                       failure:(HttpFaultBlock)failure {
+                       success:(HYHttpSuccessBlock)success
+                       failure:(HYHttpFaultBlock)failure {
     
-    [WGVideoTool convertMovSourceURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://%@",videoPath]] Complete:^(NSString * _Nonnull filePath, NSArray * _Nonnull files) {
+    [HYVideoTool convertMovSourceURL:[NSURL URLWithString:[NSString stringWithFormat:@"file://%@",videoPath]] Complete:^(NSString * _Nonnull filePath, NSArray * _Nonnull files) {
         NSLog(@"%@==%@",filePath,files);
         //获取文件的后缀名
         NSString *extension = [filePath componentsSeparatedByString:@"."].lastObject;
@@ -485,8 +488,8 @@
 /**
  上传头像
  */
-+ (void)uploadWithParameters:(id)parameters UrlString:(NSString *)urlString header:(NSDictionary *)header upImg:(NSData *)upImg imgNamge:(NSString *)imgName successBlock:(HttpSuccessBlock)successBlock failureBlock:(HttpFaultBlock)failure{
-    AFHttpClient *manager = [AFHttpClient sharedClient];
++ (void)uploadWithParameters:(id)parameters UrlString:(NSString *)urlString header:(NSDictionary *)header upImg:(NSData *)upImg imgNamge:(NSString *)imgName successBlock:(HYHttpSuccessBlock)successBlock failureBlock:(HYHttpFaultBlock)failure{
+    HYAFHttpClient *manager = [HYAFHttpClient sharedClient];
     manager.requestSerializer.timeoutInterval = 20;
      manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"multipart/form-data", @"application/json", @"text/html", @"image/jpeg", @"image/png", @"application/octet-stream", @"text/json", nil];
     //在请求头里 添加自己需要的参数
@@ -510,7 +513,7 @@
             successBlock(responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        if (![NSString stringIsNULL:[self returnErrorWithError:error].localizedDescription]) {
+        if (![[self returnErrorWithError:error].localizedDescription isNULL]) {
             ERRORWith([self returnErrorWithError:error].localizedDescription)
         }
         if (failure) {
@@ -528,11 +531,11 @@
                       upData:(NSData *)upData
                         name:(NSString *)name
                     fileType:(NSString *)fileType
-                successBlock:(HttpSuccessBlock)successBlock
-                failureBlock:(HttpFaultBlock)failure
+                successBlock:(HYHttpSuccessBlock)successBlock
+                failureBlock:(HYHttpFaultBlock)failure
 {
     
-    AFHttpClient *manager = [AFHttpClient sharedClient];
+    HYAFHttpClient *manager = [HYAFHttpClient sharedClient];
     manager.requestSerializer.timeoutInterval = 20;
      manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"multipart/form-data", @"application/json", @"text/html", @"image/jpeg", @"image/png", @"application/octet-stream", @"text/json", nil];
     //在请求头里 添加自己需要的参数
@@ -556,7 +559,7 @@
             successBlock(responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        if (![NSString stringIsNULL:[self returnErrorWithError:error].localizedDescription]) {
+        if (![[self returnErrorWithError:error].localizedDescription isNULL]) {
             ERRORWith([self returnErrorWithError:error].localizedDescription)
         }
         if (failure) {
@@ -568,7 +571,7 @@
 
 #pragma mark -
 #pragma mark - 网络状态
-+ (void)NetworkMonitoringStatus:(TheNetworkStatusBlock)state{
++ (void)NetworkMonitoringStatus:(HYTheNetworkStatusBlock)state{
     //1.创建网络状态监测管理者
     AFNetworkReachabilityManager *manger = [AFNetworkReachabilityManager sharedManager];
     //2.开启监听

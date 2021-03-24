@@ -24,6 +24,8 @@ typedef NS_ENUM(NSInteger, PickerFileType) {
     PickerFileTypeImageAndVideo  // 同时有图片和视频
 };
 
+typedef void (^ _Nullable ImageCompleteBlock)(NSData  * _Nullable imageData,UIImage * _Nullable image, BOOL isVideo, NSInteger videoDuration, NSString * _Nullable extension);
+
 @interface UIViewController (HYImagePicker)<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 /**
@@ -34,16 +36,17 @@ typedef NS_ENUM(NSInteger, PickerFileType) {
  videoDuration 视频时长
  extension 后缀类型
  */
-@property (nonatomic, copy) void (^ _Nullable imagePickCompleteBlock)(NSData  * _Nullable imageData,UIImage * _Nullable image, BOOL isVideo, NSInteger videoDuration, NSString * _Nullable extension);
+@property (nonatomic, copy) ImageCompleteBlock imagePickCompleteBlock;
 
 #pragma mark - 相册/相机
 /**
  打开相机/相册
  @param pickerType 打开pickerView类型(参考 PickerType 枚举各个类型注释)
  @param pickerFileType 文件类型(参考 PickerFileType 枚举各个类型注释)
+ @param complete 完成回调
  */
 - (void)openPickerView:(PickerType)pickerType
-        pickerFileType:(PickerFileType)pickerFileType;
+        pickerFileType:(PickerFileType)pickerFileType complete:(ImageCompleteBlock)complete;
 
 @end
 

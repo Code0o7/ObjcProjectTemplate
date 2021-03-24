@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E6075BA260B299100F65867 /* UIViewController+HYNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6075B9260B299100F65867 /* UIViewController+HYNetwork.m */; };
 		2E82CC172608708600229E1A /* NSString+HYFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E82CC072608708600229E1A /* NSString+HYFrame.m */; };
 		2E82CC182608708600229E1A /* ZhenTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E82CC0B2608708600229E1A /* ZhenTableDataSource.m */; };
 		2E82CC192608708600229E1A /* HYImageVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E82CC0E2608708600229E1A /* HYImageVideoModel.m */; };
@@ -33,6 +34,17 @@
 		2E92585225B2B0780025370D /* ObjcProjectTemplateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E92585125B2B0780025370D /* ObjcProjectTemplateTests.m */; };
 		2E92585D25B2B0790025370D /* ObjcProjectTemplateUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E92585C25B2B0790025370D /* ObjcProjectTemplateUITests.m */; };
 		2E92587E25B2B4970025370D /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E92587D25B2B4970025370D /* TestViewController.m */; };
+		2ECD1EA5260AC8C8006BCDA9 /* NSObject+HYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD1EA4260AC8C8006BCDA9 /* NSObject+HYAdd.m */; };
+		2ECD1EAC260ACBEF006BCDA9 /* HYVideoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD1EAB260ACBEF006BCDA9 /* HYVideoTool.m */; };
+		2ECD1EB5260AD68A006BCDA9 /* UIViewController+HYBottomBtns.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD1EB4260AD68A006BCDA9 /* UIViewController+HYBottomBtns.m */; };
+		2ECD1EBE260AD912006BCDA9 /* UIView+HYFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD1EBD260AD912006BCDA9 /* UIView+HYFrame.m */; };
+		2ECD1EC4260AE06E006BCDA9 /* UIViewController+HYDocumentPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD1EC3260AE06E006BCDA9 /* UIViewController+HYDocumentPicker.m */; };
+		2ECD1ECD260AE5CD006BCDA9 /* HYBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD1ECC260AE5CD006BCDA9 /* HYBaseTableViewController.m */; };
+		2ECD1EDA260AE93E006BCDA9 /* UIScrollView+HYRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD1ED9260AE93E006BCDA9 /* UIScrollView+HYRefresh.m */; };
+		2ECD1EF0260AEF03006BCDA9 /* UIViewController+HYFilePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD1EEF260AEF03006BCDA9 /* UIViewController+HYFilePreview.m */; };
+		2ECD1F01260B012C006BCDA9 /* HYDeviceTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD1F00260B012C006BCDA9 /* HYDeviceTool.m */; };
+		2ECD1F10260B0150006BCDA9 /* HYAPPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD1F0F260B0150006BCDA9 /* HYAPPTool.m */; };
+		2ECD1F8C260B193F006BCDA9 /* JRToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD1F8B260B193F006BCDA9 /* JRToast.m */; };
 		47AE0D723D1513B24218CECF /* Pods_ObjcProjectTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B1B96163ED6837F6E20755B /* Pods_ObjcProjectTemplate.framework */; };
 		47B9C6494C7B6031E6C71E70 /* Pods_ObjcProjectTemplateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7780F094733BBAF1F7A4DB37 /* Pods_ObjcProjectTemplateTests.framework */; };
 		54AC82FAC329161EE11D40E4 /* Pods_ObjcProjectTemplate_ObjcProjectTemplateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C239D9DFFC435199ABC0FBB6 /* Pods_ObjcProjectTemplate_ObjcProjectTemplateUITests.framework */; };
@@ -60,6 +72,8 @@
 		10529A56727FA749DC1720D9 /* Pods-ObjcProjectTemplate-ObjcProjectTemplateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcProjectTemplate-ObjcProjectTemplateUITests.release.xcconfig"; path = "Target Support Files/Pods-ObjcProjectTemplate-ObjcProjectTemplateUITests/Pods-ObjcProjectTemplate-ObjcProjectTemplateUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1CBC84238048FD9A14A56C67 /* Pods-ObjcProjectTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcProjectTemplate.debug.xcconfig"; path = "Target Support Files/Pods-ObjcProjectTemplate/Pods-ObjcProjectTemplate.debug.xcconfig"; sourceTree = "<group>"; };
 		27BC1426165997470C90EC08 /* Pods-ObjcProjectTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcProjectTemplate.release.xcconfig"; path = "Target Support Files/Pods-ObjcProjectTemplate/Pods-ObjcProjectTemplate.release.xcconfig"; sourceTree = "<group>"; };
+		2E6075B8260B299100F65867 /* UIViewController+HYNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HYNetwork.h"; sourceTree = "<group>"; };
+		2E6075B9260B299100F65867 /* UIViewController+HYNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HYNetwork.m"; sourceTree = "<group>"; };
 		2E82CC062608708600229E1A /* NSString+HYFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HYFrame.h"; sourceTree = "<group>"; };
 		2E82CC072608708600229E1A /* NSString+HYFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HYFrame.m"; sourceTree = "<group>"; };
 		2E82CC0B2608708600229E1A /* ZhenTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhenTableDataSource.m; sourceTree = "<group>"; };
@@ -117,6 +131,28 @@
 		2E92587D25B2B4970025370D /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		2E92588625B2BC440025370D /* HYAPIConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYAPIConfig.h; sourceTree = "<group>"; };
 		2E92588725B2BDBF0025370D /* HYConstMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYConstMacro.h; sourceTree = "<group>"; };
+		2ECD1EA3260AC8C8006BCDA9 /* NSObject+HYAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HYAdd.h"; sourceTree = "<group>"; };
+		2ECD1EA4260AC8C8006BCDA9 /* NSObject+HYAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HYAdd.m"; sourceTree = "<group>"; };
+		2ECD1EAA260ACBEF006BCDA9 /* HYVideoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYVideoTool.h; sourceTree = "<group>"; };
+		2ECD1EAB260ACBEF006BCDA9 /* HYVideoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYVideoTool.m; sourceTree = "<group>"; };
+		2ECD1EB3260AD68A006BCDA9 /* UIViewController+HYBottomBtns.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HYBottomBtns.h"; sourceTree = "<group>"; };
+		2ECD1EB4260AD68A006BCDA9 /* UIViewController+HYBottomBtns.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HYBottomBtns.m"; sourceTree = "<group>"; };
+		2ECD1EBC260AD912006BCDA9 /* UIView+HYFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HYFrame.h"; sourceTree = "<group>"; };
+		2ECD1EBD260AD912006BCDA9 /* UIView+HYFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HYFrame.m"; sourceTree = "<group>"; };
+		2ECD1EC2260AE06E006BCDA9 /* UIViewController+HYDocumentPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HYDocumentPicker.h"; sourceTree = "<group>"; };
+		2ECD1EC3260AE06E006BCDA9 /* UIViewController+HYDocumentPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HYDocumentPicker.m"; sourceTree = "<group>"; };
+		2ECD1ECB260AE5CC006BCDA9 /* HYBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYBaseTableViewController.h; sourceTree = "<group>"; };
+		2ECD1ECC260AE5CD006BCDA9 /* HYBaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYBaseTableViewController.m; sourceTree = "<group>"; };
+		2ECD1ED8260AE93E006BCDA9 /* UIScrollView+HYRefresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+HYRefresh.h"; sourceTree = "<group>"; };
+		2ECD1ED9260AE93E006BCDA9 /* UIScrollView+HYRefresh.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+HYRefresh.m"; sourceTree = "<group>"; };
+		2ECD1EEE260AEF03006BCDA9 /* UIViewController+HYFilePreview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HYFilePreview.h"; sourceTree = "<group>"; };
+		2ECD1EEF260AEF03006BCDA9 /* UIViewController+HYFilePreview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HYFilePreview.m"; sourceTree = "<group>"; };
+		2ECD1EFF260B012C006BCDA9 /* HYDeviceTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYDeviceTool.h; sourceTree = "<group>"; };
+		2ECD1F00260B012C006BCDA9 /* HYDeviceTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYDeviceTool.m; sourceTree = "<group>"; };
+		2ECD1F0E260B0150006BCDA9 /* HYAPPTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYAPPTool.h; sourceTree = "<group>"; };
+		2ECD1F0F260B0150006BCDA9 /* HYAPPTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYAPPTool.m; sourceTree = "<group>"; };
+		2ECD1F8A260B193F006BCDA9 /* JRToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRToast.h; sourceTree = "<group>"; };
+		2ECD1F8B260B193F006BCDA9 /* JRToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRToast.m; sourceTree = "<group>"; };
 		7780F094733BBAF1F7A4DB37 /* Pods_ObjcProjectTemplateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ObjcProjectTemplateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD437820CCBEA896F38661AD /* Pods-ObjcProjectTemplate-ObjcProjectTemplateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcProjectTemplate-ObjcProjectTemplateUITests.debug.xcconfig"; path = "Target Support Files/Pods-ObjcProjectTemplate-ObjcProjectTemplateUITests/Pods-ObjcProjectTemplate-ObjcProjectTemplateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C239D9DFFC435199ABC0FBB6 /* Pods_ObjcProjectTemplate_ObjcProjectTemplateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ObjcProjectTemplate_ObjcProjectTemplateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +227,8 @@
 		2E82CC042608708600229E1A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				2ECD1ED7260AE91F006BCDA9 /* UIScrollView */,
+				2ECD1EA2260AC8B0006BCDA9 /* NSObject */,
 				2E82CC9C2608975A00229E1A /* MBProgressHUD */,
 				2E82CC8426088FF100229E1A /* UIViewController */,
 				2E82CC6126088AFF00229E1A /* UIImage */,
@@ -224,6 +262,10 @@
 		2E82CC0A2608708600229E1A /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				2ECD1F89260B1912006BCDA9 /* Toast */,
+				2ECD1EFE260B010F006BCDA9 /* DeviceTools */,
+				2ECD1EF4260AF060006BCDA9 /* APPTools */,
+				2ECD1EA9260ACBD7006BCDA9 /* VideoTools */,
 				2E82CCA726089DE600229E1A /* AFNTools */,
 				2E82CCA626089DD000229E1A /* TableDataSource */,
 			);
@@ -294,6 +336,8 @@
 			children = (
 				2E82CC7E26088FAE00229E1A /* HYBaseViewController.h */,
 				2E82CC7F26088FAE00229E1A /* HYBaseViewController.m */,
+				2ECD1ECB260AE5CC006BCDA9 /* HYBaseTableViewController.h */,
+				2ECD1ECC260AE5CD006BCDA9 /* HYBaseTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -303,6 +347,8 @@
 			children = (
 				2E82CC5826088A2100229E1A /* UIView+HYSubview.h */,
 				2E82CC5926088A2100229E1A /* UIView+HYSubview.m */,
+				2ECD1EBC260AD912006BCDA9 /* UIView+HYFrame.h */,
+				2ECD1EBD260AD912006BCDA9 /* UIView+HYFrame.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -323,6 +369,14 @@
 				2E82CC862608902700229E1A /* UIViewController+HYImagePicker.m */,
 				2E82CC8E2608920900229E1A /* UIViewController+HYAlert.h */,
 				2E82CC8F2608920900229E1A /* UIViewController+HYAlert.m */,
+				2ECD1EB3260AD68A006BCDA9 /* UIViewController+HYBottomBtns.h */,
+				2ECD1EB4260AD68A006BCDA9 /* UIViewController+HYBottomBtns.m */,
+				2ECD1EC2260AE06E006BCDA9 /* UIViewController+HYDocumentPicker.h */,
+				2ECD1EC3260AE06E006BCDA9 /* UIViewController+HYDocumentPicker.m */,
+				2ECD1EEE260AEF03006BCDA9 /* UIViewController+HYFilePreview.h */,
+				2ECD1EEF260AEF03006BCDA9 /* UIViewController+HYFilePreview.m */,
+				2E6075B8260B299100F65867 /* UIViewController+HYNetwork.h */,
+				2E6075B9260B299100F65867 /* UIViewController+HYNetwork.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -430,6 +484,60 @@
 				2E82CC3826087D2600229E1A /* HYFramework.h */,
 			);
 			path = AppConfig;
+			sourceTree = "<group>";
+		};
+		2ECD1EA2260AC8B0006BCDA9 /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				2ECD1EA3260AC8C8006BCDA9 /* NSObject+HYAdd.h */,
+				2ECD1EA4260AC8C8006BCDA9 /* NSObject+HYAdd.m */,
+			);
+			path = NSObject;
+			sourceTree = "<group>";
+		};
+		2ECD1EA9260ACBD7006BCDA9 /* VideoTools */ = {
+			isa = PBXGroup;
+			children = (
+				2ECD1EAA260ACBEF006BCDA9 /* HYVideoTool.h */,
+				2ECD1EAB260ACBEF006BCDA9 /* HYVideoTool.m */,
+			);
+			path = VideoTools;
+			sourceTree = "<group>";
+		};
+		2ECD1ED7260AE91F006BCDA9 /* UIScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				2ECD1ED8260AE93E006BCDA9 /* UIScrollView+HYRefresh.h */,
+				2ECD1ED9260AE93E006BCDA9 /* UIScrollView+HYRefresh.m */,
+			);
+			path = UIScrollView;
+			sourceTree = "<group>";
+		};
+		2ECD1EF4260AF060006BCDA9 /* APPTools */ = {
+			isa = PBXGroup;
+			children = (
+				2ECD1F0E260B0150006BCDA9 /* HYAPPTool.h */,
+				2ECD1F0F260B0150006BCDA9 /* HYAPPTool.m */,
+			);
+			path = APPTools;
+			sourceTree = "<group>";
+		};
+		2ECD1EFE260B010F006BCDA9 /* DeviceTools */ = {
+			isa = PBXGroup;
+			children = (
+				2ECD1EFF260B012C006BCDA9 /* HYDeviceTool.h */,
+				2ECD1F00260B012C006BCDA9 /* HYDeviceTool.m */,
+			);
+			path = DeviceTools;
+			sourceTree = "<group>";
+		};
+		2ECD1F89260B1912006BCDA9 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				2ECD1F8A260B193F006BCDA9 /* JRToast.h */,
+				2ECD1F8B260B193F006BCDA9 /* JRToast.m */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -671,25 +779,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E82CC6426088B0D00229E1A /* UIImage+HYAdd.m in Sources */,
+				2ECD1EDA260AE93E006BCDA9 /* UIScrollView+HYRefresh.m in Sources */,
 				2E92583D25B2B0750025370D /* ViewController.m in Sources */,
 				2E82CC872608902700229E1A /* UIViewController+HYImagePicker.m in Sources */,
+				2ECD1EB5260AD68A006BCDA9 /* UIViewController+HYBottomBtns.m in Sources */,
 				2E82CC1B2608708600229E1A /* HYImageView.m in Sources */,
+				2ECD1F10260B0150006BCDA9 /* HYAPPTool.m in Sources */,
 				2E92583725B2B0750025370D /* AppDelegate.m in Sources */,
+				2E6075BA260B299100F65867 /* UIViewController+HYNetwork.m in Sources */,
 				2E82CC192608708600229E1A /* HYImageVideoModel.m in Sources */,
 				2E82CC4626087EB900229E1A /* HYBaseModel.m in Sources */,
 				2E82CC182608708600229E1A /* ZhenTableDataSource.m in Sources */,
+				2ECD1F8C260B193F006BCDA9 /* JRToast.m in Sources */,
 				2E82CC8026088FAE00229E1A /* HYBaseViewController.m in Sources */,
 				2E82CC4C2608811E00229E1A /* HYTextView.m in Sources */,
+				2ECD1EBE260AD912006BCDA9 /* UIView+HYFrame.m in Sources */,
 				2E82CC9F2608977D00229E1A /* MBProgressHUD+HYAdd.m in Sources */,
 				2E82CCAA26089E2700229E1A /* HYAFttpTool.m in Sources */,
+				2ECD1EA5260AC8C8006BCDA9 /* NSObject+HYAdd.m in Sources */,
+				2ECD1EAC260ACBEF006BCDA9 /* HYVideoTool.m in Sources */,
 				2E82CC1C2608708600229E1A /* HYFormSegmentView.m in Sources */,
 				2E82CC1A2608708600229E1A /* HYFormInfoModel.m in Sources */,
+				2ECD1F01260B012C006BCDA9 /* HYDeviceTool.m in Sources */,
 				2E82CC172608708600229E1A /* NSString+HYFrame.m in Sources */,
 				2E82CC3026087B6F00229E1A /* NSString+HYAdd.m in Sources */,
+				2ECD1EC4260AE06E006BCDA9 /* UIViewController+HYDocumentPicker.m in Sources */,
 				2E92587E25B2B4970025370D /* TestViewController.m in Sources */,
 				2E92584825B2B0780025370D /* main.m in Sources */,
+				2ECD1EF0260AEF03006BCDA9 /* UIViewController+HYFilePreview.m in Sources */,
 				2E82CC2726087A6900229E1A /* UIColor+HYAdd.m in Sources */,
 				2E82CC5A26088A2100229E1A /* UIView+HYSubview.m in Sources */,
+				2ECD1ECD260AE5CD006BCDA9 /* HYBaseTableViewController.m in Sources */,
 				2E82CC902608920900229E1A /* UIViewController+HYAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

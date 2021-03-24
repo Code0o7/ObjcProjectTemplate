@@ -19,5 +19,6 @@ target 'ObjcProjectTemplate' do
 pod 'Masonry'
 pod 'MBProgressHUD'
 pod 'AFNetworking'
+pod 'MJRefresh'
 
 end

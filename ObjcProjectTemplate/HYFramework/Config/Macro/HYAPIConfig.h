@@ -8,11 +8,16 @@
 #ifndef HYAPIConfig_h
 #define HYAPIConfig_h
 
+#pragma mark - Base
 // 服务器地址
 #define HYAPI_BASE_URL @""
 
-//baseUrl
-#define HYAPI_BaseUrl [NSString stringWithFormat:@"%@",HYAPI_IP_ADDRESS]
+// 完整url,前面拼接baseUrl
+#define HYAPI_FULL_URL(suffix) [NSString stringWithFormat:@"%@/%@",HYAPI_BASE_URL,suffix]
+
+#pragma mark - 上传图片/文件
+// 上传图片
+#define HYAPI_UploadImage @""
 
 /**
  * 登录

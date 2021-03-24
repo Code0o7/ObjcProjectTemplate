@@ -21,7 +21,6 @@
     self.window.rootViewController = testCtr;
     [self.window makeKeyWindow];
     
-    
     return YES;
 }
 
