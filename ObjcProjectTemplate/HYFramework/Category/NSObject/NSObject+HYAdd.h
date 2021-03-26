@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (BOOL)isNULL;
 
+// 对象转字符串
+- (NSString *)toString;
+
 @end
 
 NS_ASSUME_NONNULL_END

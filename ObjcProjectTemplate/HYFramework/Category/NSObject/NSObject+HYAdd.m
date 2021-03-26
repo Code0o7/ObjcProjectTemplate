@@ -52,4 +52,11 @@
     return NO;
 }
 
+
+// 对象转字符串
+- (NSString *)toString
+{
+    return [NSString stringWithFormat:@"%@",self];
+}
+
 @end

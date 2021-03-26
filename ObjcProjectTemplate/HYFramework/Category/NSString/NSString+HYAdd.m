@@ -23,7 +23,7 @@
  * 字符串判空
  * @return 结果
  */
-- (BOOL)isNULL
+- (BOOL)isEmpty
 {
     if (self == nil || self == NULL) {
         return YES;

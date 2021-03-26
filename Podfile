@@ -20,5 +20,6 @@ pod 'Masonry'
 pod 'MBProgressHUD'
 pod 'AFNetworking'
 pod 'MJRefresh'
+pod 'YYModel'
 
 end

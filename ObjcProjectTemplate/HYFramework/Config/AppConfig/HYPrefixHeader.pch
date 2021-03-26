@@ -13,6 +13,7 @@
 #import "MBProgressHUD.h"
 #import <AFNetworking.h>
 #import <MJRefresh.h>
+#import <YYModel.h>
 
 
 // 自定义框架

@@ -12,10 +12,11 @@
 
 
 #import <UIKit/UIKit.h>
+#import "HYFileModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^ _Nullable FileCompleteBlock)(NSData  * _Nullable fileData,NSString * _Nullable fileName, NSString * _Nullable fileType, BOOL success, NSError * _Nullable error);
+typedef void (^ _Nullable FileCompleteBlock)(HYFileModel *fileModel, BOOL success, NSError * _Nullable error);
 
 @interface UIViewController (HYDocumentPicker)<UIDocumentPickerDelegate>
 

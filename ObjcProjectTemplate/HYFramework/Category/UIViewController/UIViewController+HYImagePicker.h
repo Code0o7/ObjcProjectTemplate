@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HYImageVideoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,7 +25,7 @@ typedef NS_ENUM(NSInteger, PickerFileType) {
     PickerFileTypeImageAndVideo  // 同时有图片和视频
 };
 
-typedef void (^ _Nullable ImageCompleteBlock)(NSData  * _Nullable imageData,UIImage * _Nullable image, BOOL isVideo, NSInteger videoDuration, NSString * _Nullable extension);
+typedef void (^ _Nullable ImageCompleteBlock)(HYImageVideoModel *imageVideoModel);
 
 @interface UIViewController (HYImagePicker)<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
@@ -45,7 +46,7 @@ typedef void (^ _Nullable ImageCompleteBlock)(NSData  * _Nullable imageData,UIIm
  @param pickerFileType 文件类型(参考 PickerFileType 枚举各个类型注释)
  @param complete 完成回调
  */
-- (void)openPickerView:(PickerType)pickerType
+- (void)openImagePickerView:(PickerType)pickerType
         pickerFileType:(PickerFileType)pickerFileType complete:(ImageCompleteBlock)complete;
 
 @end

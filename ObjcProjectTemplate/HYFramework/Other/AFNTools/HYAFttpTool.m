@@ -529,26 +529,33 @@
                    UrlString:(NSString *)urlString
                       header:(NSDictionary *)header
                       upData:(NSData *)upData
-                        name:(NSString *)name
+                            name:(NSString *)name
+                        fileName:(NSString *)fileN
                     fileType:(NSString *)fileType
                 successBlock:(HYHttpSuccessBlock)successBlock
                 failureBlock:(HYHttpFaultBlock)failure
 {
-    
     HYAFHttpClient *manager = [HYAFHttpClient sharedClient];
     manager.requestSerializer.timeoutInterval = 20;
      manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"multipart/form-data", @"application/json", @"text/html", @"image/jpeg", @"image/png", @"application/octet-stream", @"text/json", nil];
-    //在请求头里 添加自己需要的参数
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    // 设置时间格式
-    [formatter setDateFormat:@"yyyyMMddHHmmss"];
-    NSString *dateString = [formatter stringFromDate:[NSDate date]];
-    NSString *fileName = [NSString  stringWithFormat:@"%@.%@", dateString,fileType];
     
+    //在请求头里 添加自己需要的参数
     for (NSString *key in header.allKeys) {
         [manager.requestSerializer setValue:header[key] forHTTPHeaderField:key];
     }
-    [manager POST:urlString parameters:parameters headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    
+    // 文件名,如果fileN有值,使用  没值使用当前日期时间作为文件名
+    NSString *fileName = fileN;
+    if (HYStringEmpty(fileN)) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        // 设置时间格式
+        [formatter setDateFormat:@"yyyyMMddHHmmss"];
+        NSString *dateString = [formatter stringFromDate:[NSDate date]];
+        fileName = [NSString stringWithFormat:@"%@.%@", dateString,fileType];
+    }
+    
+    // 上传
+    [manager POST:urlString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         if (upData) {
             [formData appendPartWithFileData:upData name:name fileName:fileName mimeType:@"Content-Disposition:multipart/form-data"];
         }
@@ -568,6 +575,54 @@
     }];
 }
 
+#pragma mark - 下载
+/**
+ * 下载文件
+ * @param urlStr 文件地址
+ * @param savePath 保存路径
+ * @param downProgress 下载进度回调
+ * @param complete 下载完成回调
+ */
++ (void)downloadFile:(NSString *)urlStr
+            savePath:(NSString *)savePath
+        downProgress:(void (^)(NSString *))downProgress
+            complete:(void (^)(BOOL))complete
+{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        /* 创建网络下载对象 */
+        AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        
+        /* 下载地址 */
+        NSURL *url = [NSURL URLWithString:[urlStr
+        stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet
+        URLFragmentAllowedCharacterSet]]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        /* 开始请求下载 */
+        NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+            NSString *pro = [NSString stringWithFormat:@"%.0f％",downloadProgress.fractionCompleted * 100];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //如果需要进行UI操作，需要获取主线程进行操作
+                if (downProgress) {
+                    downProgress(pro);
+                }
+            });
+        } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+            
+            /* 设定下载到的位置 */
+            return [NSURL fileURLWithPath:savePath];
+                    
+        } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                BOOL suc = error ? NO : YES;
+                if (complete) {
+                    complete(suc);
+                }
+            });
+        }];
+        [downloadTask resume];
+    });
+}
 
 #pragma mark -
 #pragma mark - 网络状态

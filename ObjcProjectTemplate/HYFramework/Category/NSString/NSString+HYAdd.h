@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
  * 字符串判空
  * @return 结果
  */
-- (BOOL)isNULL;
+- (BOOL)isEmpty;
 
 @end
 

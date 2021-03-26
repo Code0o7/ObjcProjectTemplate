@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (HYNetwork)
 
+#pragma mark - POST请求
 /**
  * post请求
  * @param path      请求路径（传除了BaseUrl的后半部分）
@@ -48,6 +49,8 @@ NS_ASSUME_NONNULL_BEGIN
              success:(void (^_Nullable)(id _Nullable result))success
              showHud:(BOOL)showHud;
 
+
+#pragma mark - GET请求
 /**
  * get请求
  * @param path      请求路径（传除了BaseUrl的后半部分）
@@ -84,6 +87,8 @@ NS_ASSUME_NONNULL_BEGIN
              success:(void (^_Nullable)(id _Nullable result))success
             showHud:(BOOL)showHud;
 
+
+#pragma mark - 上传文件/图片
 /**
  * 上传图片
  * @param imageData 图片二进制
@@ -117,6 +122,29 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)uploadMultiFile:(NSArray <HYImageVideoModel *>*)filesArray
                complete:(void (^)(BOOL hasFile))complete;
+
+
+#pragma mark - 下载文件
+/**
+ * 下载文件到cache目录
+ * @param fileUrl 文件地址
+ * @param saveDirName 文件保存的文件夹名称
+ * @param fileN 指定文件名,如果不指定,默认截取文件下载地址最后的文件名
+ * @param comple 下载完成回调
+ */
+- (void)downloadFileToCacheDir:(NSString *)fileUrl
+                   saveDirName:(NSString *)saveDirName
+                      fileName:(NSString *)fileN
+                      complete:(void (^)(BOOL success, NSString *fileP))comple;
+
+
+#pragma mark - 其他
+/**
+ * json转model
+ * @param response 网络请求结果
+ * @param modelClass model类
+ */
+- (id)jsonToModel:(id)response modelClass:(Class)modelClass;
 
 @end
 

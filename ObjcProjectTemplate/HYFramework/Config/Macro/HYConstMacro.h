@@ -105,17 +105,19 @@
 // 比较字符串是否相等
 #define HYStringEqual(str1,str2) [str1 isEqualToString:str2]
 // 字符串是否是空
-#define HYStringEmpty(str) [str isNULL]
+#define HYStringEmpty(str) [str isEmpty]
 // 字符串转float
 #define HYStringToFloat(str) [str floatValue]
 // 字符串转double
 #define HYStringToDouble(str) [str doubleValue]
 // 后台返回特殊字符串处理,null、<null>、(null)等转换成@""
-#define HYStringHandle(str) ([str isNULL] ? @"" : str)
+#define HYStringHandle(str) ([str isEmpty] ? @"" : str)
 
 // 判断对象是不是指定的类类型
 #define HYObjIsKindOfClass(obj,clas) [obj isKindOfClass:[clas class]]
 
+// toast
+#define HYShowToast(msg) [JRToast showWithText:msg]
 
 
 #pragma mark - 强、弱引用宏

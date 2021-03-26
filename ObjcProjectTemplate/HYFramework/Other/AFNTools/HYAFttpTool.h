@@ -160,7 +160,8 @@ typedef NS_ENUM(NSInteger, RequestType) {
                    UrlString:(NSString *)urlString
                       header:(NSDictionary *)header
                       upData:(NSData *)upData
-                        name:(NSString *)name
+                            name:(NSString *)name
+                        fileName:(NSString *)fileN
                     fileType:(NSString *)fileType
                 successBlock:(HYHttpSuccessBlock)successBlock
                 failureBlock:(HYHttpFaultBlock)failure;
@@ -176,6 +177,19 @@ typedef NS_ENUM(NSInteger, RequestType) {
  @param state 状态
  */
 + (void)NetworkMonitoringStatus:(HYTheNetworkStatusBlock)state;
+
+#pragma mark - 下载
+/**
+ * 下载文件
+ * @param urlStr 文件地址
+ * @param savePath 保存路径
+ * @param downProgress 下载进度回调
+ * @param complete 下载完成回调
+ */
++ (void)downloadFile:(NSString *)urlStr
+            savePath:(NSString *)savePath
+        downProgress:(void (^)(NSString *))downProgress
+            complete:(void (^)(BOOL))complete;
 
 @end
 

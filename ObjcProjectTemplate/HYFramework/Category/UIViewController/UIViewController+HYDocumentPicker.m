@@ -37,6 +37,8 @@ static char filePickerBlock;
         return;
     }
     
+    self.filePickCompleteBlock = complete;
+    
     // 打开文件app
     NSArray *documentType = @[
         @"public.content",
@@ -80,6 +82,9 @@ static char filePickerBlock;
 {
     WeakSelf
     
+    // model
+    HYFileModel *fModel = [HYFileModel model];
+    
     // 获取授权
     BOOL fileUrlAuthozied = [urls.firstObject startAccessingSecurityScopedResource];
     if (fileUrlAuthozied) {
@@ -93,15 +98,20 @@ static char filePickerBlock;
             NSError *error = nil;
             NSData *fileData = [NSData dataWithContentsOfURL:newURL options:NSDataReadingMappedIfSafe error:&error];
             NSString *extension = [newURL pathExtension];
+            
+            fModel.fileName = fileName;
+            fModel.data = fileData;
+            fModel.fileType = extension;
+            
             if (error) {
                 // 读取出错
                 if (Weakself.filePickCompleteBlock) {
-                    Weakself.filePickCompleteBlock(fileData, fileName, extension, NO, error);
+                    Weakself.filePickCompleteBlock(fModel, NO, error);
                 }
             } else {
                 // 上传
                 if (Weakself.filePickCompleteBlock) {
-                    Weakself.filePickCompleteBlock(fileData, fileName, extension,YES, error);
+                    Weakself.filePickCompleteBlock(fModel, YES, error);
                 }
             }
         }];
@@ -109,7 +119,7 @@ static char filePickerBlock;
     } else {
         // 授权失败
         if (Weakself.filePickCompleteBlock) {
-            Weakself.filePickCompleteBlock(nil, nil, nil, NO, nil);
+            Weakself.filePickCompleteBlock(fModel, NO, nil);
         }
     }
 }

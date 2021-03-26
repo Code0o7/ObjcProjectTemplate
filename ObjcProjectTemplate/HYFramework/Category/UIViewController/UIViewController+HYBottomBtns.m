@@ -154,6 +154,7 @@ static char bottomBtnActionsConst;
     if (fv == nil) {
         fv = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.hy_height - HYSCREEN_Bottom_Safe_Height - 60, HYSCREEN_Width, 60 + HYSCREEN_Bottom_Safe_Height)];
         fv.backgroundColor = [UIColor whiteColor];
+        self.fview = fv;
     }
     return fv;
 }

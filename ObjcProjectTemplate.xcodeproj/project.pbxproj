@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2E6075BA260B299100F65867 /* UIViewController+HYNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6075B9260B299100F65867 /* UIViewController+HYNetwork.m */; };
+		2E6E1AE3260D779D003CD3B9 /* NSDate+HYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6E1AE2260D779D003CD3B9 /* NSDate+HYAdd.m */; };
+		2E6E1AED260DA4B8003CD3B9 /* HYFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6E1AEC260DA4B8003CD3B9 /* HYFileModel.m */; };
 		2E82CC172608708600229E1A /* NSString+HYFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E82CC072608708600229E1A /* NSString+HYFrame.m */; };
 		2E82CC182608708600229E1A /* ZhenTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E82CC0B2608708600229E1A /* ZhenTableDataSource.m */; };
 		2E82CC192608708600229E1A /* HYImageVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E82CC0E2608708600229E1A /* HYImageVideoModel.m */; };
@@ -45,6 +47,9 @@
 		2ECD1F01260B012C006BCDA9 /* HYDeviceTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD1F00260B012C006BCDA9 /* HYDeviceTool.m */; };
 		2ECD1F10260B0150006BCDA9 /* HYAPPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD1F0F260B0150006BCDA9 /* HYAPPTool.m */; };
 		2ECD1F8C260B193F006BCDA9 /* JRToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD1F8B260B193F006BCDA9 /* JRToast.m */; };
+		2ED80487260C52C600DDBD78 /* HYJsonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED80486260C52C600DDBD78 /* HYJsonTool.m */; };
+		2ED804A4260C785A00DDBD78 /* HYBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED8049E260C785A00DDBD78 /* HYBaseTableViewCell.m */; };
+		2ED804A6260C785A00DDBD78 /* HYBaseCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED804A3260C785A00DDBD78 /* HYBaseCustomView.m */; };
 		47AE0D723D1513B24218CECF /* Pods_ObjcProjectTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B1B96163ED6837F6E20755B /* Pods_ObjcProjectTemplate.framework */; };
 		47B9C6494C7B6031E6C71E70 /* Pods_ObjcProjectTemplateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7780F094733BBAF1F7A4DB37 /* Pods_ObjcProjectTemplateTests.framework */; };
 		54AC82FAC329161EE11D40E4 /* Pods_ObjcProjectTemplate_ObjcProjectTemplateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C239D9DFFC435199ABC0FBB6 /* Pods_ObjcProjectTemplate_ObjcProjectTemplateUITests.framework */; };
@@ -74,6 +79,10 @@
 		27BC1426165997470C90EC08 /* Pods-ObjcProjectTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcProjectTemplate.release.xcconfig"; path = "Target Support Files/Pods-ObjcProjectTemplate/Pods-ObjcProjectTemplate.release.xcconfig"; sourceTree = "<group>"; };
 		2E6075B8260B299100F65867 /* UIViewController+HYNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HYNetwork.h"; sourceTree = "<group>"; };
 		2E6075B9260B299100F65867 /* UIViewController+HYNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HYNetwork.m"; sourceTree = "<group>"; };
+		2E6E1AE1260D779D003CD3B9 /* NSDate+HYAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+HYAdd.h"; sourceTree = "<group>"; };
+		2E6E1AE2260D779D003CD3B9 /* NSDate+HYAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HYAdd.m"; sourceTree = "<group>"; };
+		2E6E1AEB260DA4B8003CD3B9 /* HYFileModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYFileModel.h; sourceTree = "<group>"; };
+		2E6E1AEC260DA4B8003CD3B9 /* HYFileModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYFileModel.m; sourceTree = "<group>"; };
 		2E82CC062608708600229E1A /* NSString+HYFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HYFrame.h"; sourceTree = "<group>"; };
 		2E82CC072608708600229E1A /* NSString+HYFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HYFrame.m"; sourceTree = "<group>"; };
 		2E82CC0B2608708600229E1A /* ZhenTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhenTableDataSource.m; sourceTree = "<group>"; };
@@ -153,6 +162,12 @@
 		2ECD1F0F260B0150006BCDA9 /* HYAPPTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYAPPTool.m; sourceTree = "<group>"; };
 		2ECD1F8A260B193F006BCDA9 /* JRToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRToast.h; sourceTree = "<group>"; };
 		2ECD1F8B260B193F006BCDA9 /* JRToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRToast.m; sourceTree = "<group>"; };
+		2ED80485260C52C600DDBD78 /* HYJsonTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYJsonTool.h; sourceTree = "<group>"; };
+		2ED80486260C52C600DDBD78 /* HYJsonTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYJsonTool.m; sourceTree = "<group>"; };
+		2ED8049E260C785A00DDBD78 /* HYBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBaseTableViewCell.m; sourceTree = "<group>"; };
+		2ED8049F260C785A00DDBD78 /* HYBaseCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBaseCustomView.h; sourceTree = "<group>"; };
+		2ED804A0260C785A00DDBD78 /* HYBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBaseTableViewCell.h; sourceTree = "<group>"; };
+		2ED804A3260C785A00DDBD78 /* HYBaseCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBaseCustomView.m; sourceTree = "<group>"; };
 		7780F094733BBAF1F7A4DB37 /* Pods_ObjcProjectTemplateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ObjcProjectTemplateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD437820CCBEA896F38661AD /* Pods-ObjcProjectTemplate-ObjcProjectTemplateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcProjectTemplate-ObjcProjectTemplateUITests.debug.xcconfig"; path = "Target Support Files/Pods-ObjcProjectTemplate-ObjcProjectTemplateUITests/Pods-ObjcProjectTemplate-ObjcProjectTemplateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C239D9DFFC435199ABC0FBB6 /* Pods_ObjcProjectTemplate_ObjcProjectTemplateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ObjcProjectTemplate_ObjcProjectTemplateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +226,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		2E6E1AE0260D7789003CD3B9 /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				2E6E1AE1260D779D003CD3B9 /* NSDate+HYAdd.h */,
+				2E6E1AE2260D779D003CD3B9 /* NSDate+HYAdd.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
 		2E82CC032608708600229E1A /* HYFramework */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +251,7 @@
 		2E82CC042608708600229E1A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				2E6E1AE0260D7789003CD3B9 /* NSDate */,
 				2ECD1ED7260AE91F006BCDA9 /* UIScrollView */,
 				2ECD1EA2260AC8B0006BCDA9 /* NSObject */,
 				2E82CC9C2608975A00229E1A /* MBProgressHUD */,
@@ -262,6 +287,7 @@
 		2E82CC0A2608708600229E1A /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				2ED80484260C52B300DDBD78 /* Json */,
 				2ECD1F89260B1912006BCDA9 /* Toast */,
 				2ECD1EFE260B010F006BCDA9 /* DeviceTools */,
 				2ECD1EF4260AF060006BCDA9 /* APPTools */,
@@ -277,6 +303,8 @@
 			children = (
 				2E82CC102608708600229E1A /* HYFormInfoModel.h */,
 				2E82CC0F2608708600229E1A /* HYFormInfoModel.m */,
+				2E6E1AEB260DA4B8003CD3B9 /* HYFileModel.h */,
+				2E6E1AEC260DA4B8003CD3B9 /* HYFileModel.m */,
 				2E82CC112608708600229E1A /* HYImageVideoModel.h */,
 				2E82CC0E2608708600229E1A /* HYImageVideoModel.m */,
 			);
@@ -327,6 +355,10 @@
 		2E82CC4226087E8800229E1A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2ED8049F260C785A00DDBD78 /* HYBaseCustomView.h */,
+				2ED804A3260C785A00DDBD78 /* HYBaseCustomView.m */,
+				2ED804A0260C785A00DDBD78 /* HYBaseTableViewCell.h */,
+				2ED8049E260C785A00DDBD78 /* HYBaseTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -538,6 +570,15 @@
 				2ECD1F8B260B193F006BCDA9 /* JRToast.m */,
 			);
 			path = Toast;
+			sourceTree = "<group>";
+		};
+		2ED80484260C52B300DDBD78 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				2ED80485260C52C600DDBD78 /* HYJsonTool.h */,
+				2ED80486260C52C600DDBD78 /* HYJsonTool.m */,
+			);
+			path = Json;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -781,8 +822,11 @@
 				2E82CC6426088B0D00229E1A /* UIImage+HYAdd.m in Sources */,
 				2ECD1EDA260AE93E006BCDA9 /* UIScrollView+HYRefresh.m in Sources */,
 				2E92583D25B2B0750025370D /* ViewController.m in Sources */,
+				2E6E1AE3260D779D003CD3B9 /* NSDate+HYAdd.m in Sources */,
+				2ED804A4260C785A00DDBD78 /* HYBaseTableViewCell.m in Sources */,
 				2E82CC872608902700229E1A /* UIViewController+HYImagePicker.m in Sources */,
 				2ECD1EB5260AD68A006BCDA9 /* UIViewController+HYBottomBtns.m in Sources */,
+				2ED804A6260C785A00DDBD78 /* HYBaseCustomView.m in Sources */,
 				2E82CC1B2608708600229E1A /* HYImageView.m in Sources */,
 				2ECD1F10260B0150006BCDA9 /* HYAPPTool.m in Sources */,
 				2E92583725B2B0750025370D /* AppDelegate.m in Sources */,
@@ -796,6 +840,8 @@
 				2ECD1EBE260AD912006BCDA9 /* UIView+HYFrame.m in Sources */,
 				2E82CC9F2608977D00229E1A /* MBProgressHUD+HYAdd.m in Sources */,
 				2E82CCAA26089E2700229E1A /* HYAFttpTool.m in Sources */,
+				2ED80487260C52C600DDBD78 /* HYJsonTool.m in Sources */,
+				2E6E1AED260DA4B8003CD3B9 /* HYFileModel.m in Sources */,
 				2ECD1EA5260AC8C8006BCDA9 /* NSObject+HYAdd.m in Sources */,
 				2ECD1EAC260ACBEF006BCDA9 /* HYVideoTool.m in Sources */,
 				2E82CC1C2608708600229E1A /* HYFormSegmentView.m in Sources */,

@@ -16,11 +16,11 @@ static char photoBlock;
 
 #pragma mark - 关联属性
 //getter
-- (void (^)(NSData * _Nullable, UIImage * _Nullable, BOOL, NSInteger, NSString * _Nullable))imagePickCompleteBlock
+- (ImageCompleteBlock)imagePickCompleteBlock
 {
     return objc_getAssociatedObject(self, &photoBlock);
 }
-- (void)setImagePickCompleteBlock:(void (^)(NSData * _Nullable, UIImage * _Nullable, BOOL, NSInteger, NSString * _Nullable))imagePickCompleteBlock
+- (void)setImagePickCompleteBlock:(ImageCompleteBlock)imagePickCompleteBlock
 {
     objc_setAssociatedObject(self, &photoBlock, imagePickCompleteBlock, OBJC_ASSOCIATION_COPY);
 }
@@ -32,7 +32,7 @@ static char photoBlock;
  @param pickerFileType 文件类型(参考 PickerFileType 枚举各个类型注释)
  @param complete 完成回调
  */
-- (void)openPickerView:(PickerType)pickerType
+- (void)openImagePickerView:(PickerType)pickerType
         pickerFileType:(PickerFileType)pickerFileType
               complete:(ImageCompleteBlock)complete
 {
@@ -196,6 +196,9 @@ static char photoBlock;
     // 类型
     NSString *mediaType=[info objectForKey:UIImagePickerControllerMediaType];
     
+    // model
+    HYImageVideoModel *imageVideoModel = [HYImageVideoModel model];
+    
     if (HYStringEqual(mediaType, (NSString *)kUTTypeImage)) {
         // 子线程处理照片
         [MBProgressHUD showMessage:@"请稍后..." toView:picker.view];
@@ -220,8 +223,12 @@ static char photoBlock;
                 DISMISS
                 [MBProgressHUD hideHUDForView:picker.view];
                 
+                imageVideoModel.data = imgdata;
+                imageVideoModel.image = image;
+                imageVideoModel.video = NO;
+                
                 if (self.imagePickCompleteBlock) {
-                    self.imagePickCompleteBlock(imgdata, image, false, 0, @"");
+                    self.imagePickCompleteBlock(imageVideoModel);
                 }
                 
                 [self dismissViewControllerAnimated:YES completion:nil];
@@ -263,8 +270,15 @@ static char photoBlock;
             NSLog(@"视频数据:%lu",(unsigned long)data.length);
             
             [MBProgressHUD hideHUDForView:picker.view];
+            
+            imageVideoModel.data = data;
+            imageVideoModel.image = image;
+            imageVideoModel.video = YES;
+            imageVideoModel.videoDuration = dur;
+            imageVideoModel.fileType = @"mp4";
+            
             if (self.imagePickCompleteBlock) {
-                self.imagePickCompleteBlock(data, image, true, dur,@"mp4");
+                self.imagePickCompleteBlock(imageVideoModel);
             }
             [self dismissViewControllerAnimated:YES completion:nil];
         }];

@@ -19,6 +19,9 @@
 // viewWillAppear记录导航栏状态 viewWillDisappear恢复，防止影响其他控制器显示
 @property (nonatomic, assign) BOOL navOriginHiddenState;
 
+// 返回按钮
+@property (nonatomic, strong) UIBarButtonItem *backButtonItem;
+
 @end
 
 @implementation HYBaseViewController
@@ -60,8 +63,7 @@
     // 设置返回按钮
     if (self.navigationController) {
         if (self.navigationController.viewControllers.count > 1) {
-            UIBarButtonItem *leftTem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self.navigationController action:@selector(popViewControllerAnimated:)];
-            [self.navigationItem setLeftBarButtonItem:leftTem];
+            [self.navigationItem setLeftBarButtonItem:self.backButtonItem];
         }
     }
 }
@@ -122,6 +124,21 @@
     }
     return _scrollContentView;
 }
+
+// 返回按钮
+- (UIBarButtonItem *)backButtonItem
+{
+    if (!_backButtonItem) {
+        UIButton *backBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
+        [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+        UIImageView *backImgV = [[UIImageView alloc]initWithImage:HYImageNamed(@"me_goback")];
+        backImgV.frame = CGRectMake(0, 10, 25, 25);
+        [backBtn addSubview:backImgV];
+        _backButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
+    }
+    return _backButtonItem;
+}
+
 
 
 @end

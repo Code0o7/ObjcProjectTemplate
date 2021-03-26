@@ -9,7 +9,7 @@
 
 @implementation UIViewController (HYNetwork)
 
-#pragma mark - 公用网络请求封装
+#pragma mark - POST请求
 /**
  * post请求
  * @param path      请求路径（传除了BaseUrl的后半部分）
@@ -101,6 +101,7 @@
     [self postWithPath:path params:params success:success faile:nil showHud:showHud];
 }
 
+#pragma mark - GET请求
 /**
  * get请求
  * @param path      请求路径（传除了BaseUrl的后半部分）
@@ -192,6 +193,7 @@
     [self getWithPath:path params:params success:success faile:nil showHud:showHud];
 }
 
+#pragma mark - 上传文件/图片
 /**
  * 上传图片
  * @param imageData 图片二进制
@@ -347,6 +349,97 @@
             complete(NO);
         }
     }
+}
+
+#pragma mark - 下载文件
+/**
+ * 下载文件
+ * @param fileUrl 文件地址
+ * @param saveDirPath 文件保存的文件夹路径
+ * @param fileN 指定文件名,如果不指定,默认截取文件下载地址最后的文件名
+ * @param comple 下载完成回调
+ */
+- (void)downloadFile:(NSString *)fileUrl
+         saveDirPath:(NSString *)saveDirPath
+            fileName:(NSString *)fileN
+            complete:(void (^)(BOOL success, NSString *fileP))comple
+{
+    // 创建文件夹
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+
+    // 创建目录
+    [fileManager createDirectoryAtPath:saveDirPath withIntermediateDirectories:YES attributes:nil error:nil];
+   
+    // 下载文件
+    NSString *fileName = fileN;
+    if (fileN == nil || HYStringEmpty(fileN)) {
+        // 不指定文件名,截取文件地址附带的文件名
+        fileName = [fileUrl lastPathComponent];
+    }
+    
+    // 文件保存路径
+    NSString *fileFullPath = [saveDirPath stringByAppendingPathComponent:fileName];
+    // 如果文件存在 直接返回文件地址
+    if ([fileManager fileExistsAtPath:fileFullPath]) {
+        if (comple) {
+            comple(YES,fileFullPath);
+        }
+    }else {
+        // 下载文件
+        [HYAFttpTool downloadFile:fileUrl savePath:fileFullPath downProgress:^(NSString *pro) {
+        } complete:^(BOOL suc) {
+            if (comple) {
+                comple(suc,fileFullPath);
+            }
+        }];
+    }
+}
+
+/**
+ * 下载文件到cache目录
+ * @param fileUrl 文件地址
+ * @param saveDirName 文件保存的文件夹名称
+ * @param fileN 指定文件名,如果不指定,默认截取文件下载地址最后的文件名
+ * @param comple 下载完成回调
+ */
+- (void)downloadFileToCacheDir:(NSString *)fileUrl
+                   saveDirName:(NSString *)saveDirName
+                      fileName:(NSString *)fileN
+                      complete:(void (^)(BOOL success, NSString *fileP))comple
+{
+    // 获取cache文件夹路径
+    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask,YES) firstObject];
+    NSString *dirPath = [cachePath stringByAppendingPathComponent:saveDirName];
+    
+    // 下载
+    [self downloadFile:fileUrl saveDirPath:dirPath fileName:fileN complete:comple];
+}
+
+#pragma mark - 其他
+/**
+ * json转model
+ * @param response 网络请求结果
+ * @param modelClass model类
+ */
+- (id)jsonToModel:(id)response modelClass:(Class)modelClass
+{
+    id obj = nil;
+    if (response && HYObjIsKindOfClass(response, NSDictionary)) {
+        NSDictionary *dict = (NSDictionary *)response;
+        if ([dict.allKeys containsObject:@"AppendData"]) {
+            id data = dict[@"AppendData"];
+            if (HYObjIsKindOfClass(data, NSDictionary)) {
+                obj = [modelClass yy_modelWithDictionary:data];
+            }else if (HYObjIsKindOfClass(data, NSArray)){
+                // 数组转换
+                obj = [NSArray yy_modelArrayWithClass:modelClass json:data];
+            }else {
+                NSLog(@"不支持转换的json格式:%@",data);
+            }
+        }
+    }
+    
+    return obj;
 }
 
 @end
